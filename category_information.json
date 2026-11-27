@@ -1,0 +1,41 @@
+{
+    "UNSW_categories": [
+        "Analysis",
+        "Backdoor",
+        "DoS",
+        "Exploits",
+        "Fuzzers",
+        "Generic",
+        "Reconnaissance",
+        "Shellcode",
+        "Worms"
+    ],
+    "NSL_categories": [
+        "back",
+        "buffer_overflow",
+        "ftp_write",
+        "guess_passwd",
+        "imap",
+        "ipsweep",
+        "land",
+        "loadmodule",
+        "multihop",
+        "neptune",
+        "nmap",
+        "perl",
+        "phf",
+        "pod",
+        "portsweep",
+        "rootkit",
+        "satan",
+        "smurf",
+        "spy",
+        "teardrop",
+        "warezclient",
+        "warezmaster"
+    ],
+    "binary_classes": {
+        "0": "Normal",
+        "1": "Attack"
+    }
+}
