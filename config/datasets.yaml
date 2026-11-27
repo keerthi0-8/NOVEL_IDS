@@ -1,0 +1,16 @@
+datasets:
+  nsl_kdd:
+    train: "G:/My Drive/NSL-KDD/NSL_KDD-master/KDDTrain+.txt"
+    test: "G:/My Drive/NSL-KDD/NSL_KDD-master/KDDTest+.txt"
+    metadata: "G:/My Drive/NSL-KDD/NSL_KDD-master/Field Names.csv"
+    format: "csv_no_header"
+    validation_split: "data/interim/validation_splits/nsl_kdd_split_v2_no_kddtest_feature_overlap.joblib"
+    unified_artifact: "data/processed/unified_representation/nsl_kdd_unified_v2_no_kddtest_feature_overlap.joblib"
+
+  unsw_nb15:
+    train: "G:/My Drive/UNSW-NB15/UNSW_NB15_testing-set.csv"
+    test: "G:/My Drive/UNSW-NB15/UNSW_NB15_training-set.csv"
+    metadata: "G:/My Drive/UNSW-NB15/NUSW-NB15_features.csv"
+    format: "csv_with_header"
+    validation_split: "data/interim/validation_splits/unsw_nb15_split_v2_no_test_feature_overlap.joblib"
+    unified_artifact: "data/processed/unified_representation/unsw_nb15_unified_v2_no_test_feature_overlap.joblib"

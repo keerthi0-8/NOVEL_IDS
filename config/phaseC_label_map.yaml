@@ -1,0 +1,30 @@
+schema_version: 1
+source: "NSL-KDD attack-family documentation: MDPI Sensors 2025 Table 3 (https://www.mdpi.com/1424-8220/25/8/2614); corroborated by SAGE 2021 Appendix Table A1 (https://journals.sagepub.com/doi/10.1089/big.2020.0263)."
+normalization: "strip whitespace; case-insensitive; UNSW Backdoors aliases Backdoor"
+nsl_kdd:
+  families:
+    DoS: [back, land, neptune, pod, smurf, teardrop, apache2, udpstorm, processtable, worm, mailbomb]
+    Probe: [satan, ipsweep, nmap, portsweep, mscan, saint]
+    R2L: [guess_passwd, ftp_write, imap, phf, multihop, warezmaster, warezclient, spy, xlock, xsnoop, snmpguess, snmpgetattack, httptunnel, sendmail, named]
+    U2R: [buffer_overflow, loadmodule, rootkit, perl, sqlattack, xterm, ps]
+  unified:
+    DoS: DoS
+    Probe: Probe_Recon
+    R2L: NSL_R2L
+    U2R: NSL_U2R
+    normal: Normal
+unsw_nb15:
+  mappings:
+    analysis: UNSW_Analysis
+    backdoor: UNSW_Backdoor
+    dos: DoS
+    exploits: UNSW_Exploits
+    fuzzers: UNSW_Fuzzers
+    generic: UNSW_Generic
+    normal: Normal
+    reconnaissance: Probe_Recon
+    shellcode: UNSW_Shellcode
+    worms: UNSW_Worms
+  aliases:
+    backdoors: backdoor
+unsupported_policy: "UNSUPPORTED_<normalized_label>; exclude from known-class metrics; count as unfamiliar-positive for OOD evaluation"

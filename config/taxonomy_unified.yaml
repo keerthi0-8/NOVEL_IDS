@@ -1,0 +1,213 @@
+schema_version: 1
+name: NOVEL-IDS Unified Source Taxonomy
+status: approved
+approval_source: User message, 2026-11-25; approved mapping and taxonomy granularity
+  decisions.
+classes:
+- Normal
+- DoS
+- Probe_Recon
+- UNSW_Exploits
+- UNSW_Fuzzers
+- UNSW_Generic
+- UNSW_Analysis
+- UNSW_Backdoor
+- UNSW_Shellcode
+- UNSW_Worms
+- NSL_R2L
+- NSL_U2R
+dataset_specific_classes:
+- UNSW_Exploits
+- UNSW_Fuzzers
+- UNSW_Generic
+- UNSW_Analysis
+- UNSW_Backdoor
+- UNSW_Shellcode
+- UNSW_Worms
+- NSL_R2L
+- NSL_U2R
+mapping_policy: Normal, DoS, and Probe_Recon are shared; NSL-KDD R2L and U2R remain
+  NSL-specific families; all other UNSW attack classes remain UNSW-specific. Stage
+  5 native labels unchanged.
+datasets:
+  nsl_kdd:
+    original_labels:
+    - back
+    - buffer_overflow
+    - ftp_write
+    - guess_passwd
+    - imap
+    - ipsweep
+    - land
+    - loadmodule
+    - multihop
+    - neptune
+    - nmap
+    - normal
+    - perl
+    - phf
+    - pod
+    - portsweep
+    - rootkit
+    - satan
+    - smurf
+    - spy
+    - teardrop
+    - warezclient
+    - warezmaster
+    mappings:
+    - original_label: back
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: buffer_overflow
+      unified_class: NSL_U2R
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: ftp_write
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: guess_passwd
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: imap
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: ipsweep
+      unified_class: Probe_Recon
+      status: approved
+      evidence: User-approved NSL-KDD Probe-family grouping (ipsweep, nmap, portsweep,
+        satan) with UNSW Reconnaissance, 2026-11-25.
+    - original_label: land
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: loadmodule
+      unified_class: NSL_U2R
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: multihop
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: neptune
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: nmap
+      unified_class: Probe_Recon
+      status: approved
+      evidence: User-approved NSL-KDD Probe-family grouping (ipsweep, nmap, portsweep,
+        satan) with UNSW Reconnaissance, 2026-11-25.
+    - original_label: normal
+      unified_class: Normal
+      status: approved
+      evidence: User-approved Normal mapping across both source datasets, 2026-11-25.
+    - original_label: perl
+      unified_class: NSL_U2R
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: phf
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: pod
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: portsweep
+      unified_class: Probe_Recon
+      status: approved
+      evidence: User-approved NSL-KDD Probe-family grouping (ipsweep, nmap, portsweep,
+        satan) with UNSW Reconnaissance, 2026-11-25.
+    - original_label: rootkit
+      unified_class: NSL_U2R
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: satan
+      unified_class: Probe_Recon
+      status: approved
+      evidence: User-approved NSL-KDD Probe-family grouping (ipsweep, nmap, portsweep,
+        satan) with UNSW Reconnaissance, 2026-11-25.
+    - original_label: smurf
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: spy
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: teardrop
+      unified_class: DoS
+      status: approved
+      evidence: User-approved NSL-KDD DoS-family grouping (back, land, neptune, pod,
+        smurf, teardrop), 2026-11-25.
+    - original_label: warezclient
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: warezmaster
+      unified_class: NSL_R2L
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+  unsw_nb15:
+    original_labels:
+    - Analysis
+    - Backdoor
+    - DoS
+    - Exploits
+    - Fuzzers
+    - Generic
+    - Normal
+    - Reconnaissance
+    - Shellcode
+    - Worms
+    mappings:
+    - original_label: Analysis
+      unified_class: UNSW_Analysis
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: Backdoor
+      unified_class: UNSW_Backdoor
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: DoS
+      unified_class: DoS
+      status: approved
+      evidence: User-approved UNSW-NB15 DoS mapping to shared DoS class, 2026-11-25.
+    - original_label: Exploits
+      unified_class: UNSW_Exploits
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: Fuzzers
+      unified_class: UNSW_Fuzzers
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: Generic
+      unified_class: UNSW_Generic
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: Normal
+      unified_class: Normal
+      status: approved
+      evidence: User-approved Normal mapping across both source datasets, 2026-11-25.
+    - original_label: Reconnaissance
+      unified_class: Probe_Recon
+      status: approved
+      evidence: User-approved UNSW-NB15 Reconnaissance to Probe_Recon mapping, 2026-11-25.
+    - original_label: Shellcode
+      unified_class: UNSW_Shellcode
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.
+    - original_label: Worms
+      unified_class: UNSW_Worms
+      status: approved
+      evidence: User-approved dataset-specific class preservation for Stage 11, 2026-11-25.

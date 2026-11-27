@@ -1,0 +1,75 @@
+
+schema_version: 1
+
+review_policy:
+  approved_mappings_only_in_common_registry: true
+  preserve_original_features: true
+  partial_matches_are_not_common_features: true
+  require_definition_and_window_compatibility: true
+
+candidates:
+
+  - nsl_kdd: srv_count
+    unsw_nb15:
+      - ct_srv_src
+      - ct_srv_dst
+    relationship: partial
+    status: pending_review
+    reason: >
+      All describe service-related connection frequency,
+      but grouping conditions and observation windows differ.
+
+  - nsl_kdd: count
+    unsw_nb15:
+      - ct_dst_ltm
+      - ct_src_ltm
+    relationship: partial
+    status: pending_review
+    reason: >
+      Both describe connection frequency, but the grouping
+      dimensions and calculation contexts differ.
+
+  - nsl_kdd: dst_host_count
+    unsw_nb15:
+      - ct_dst_ltm
+    relationship: partial
+    status: pending_review
+    reason: >
+      Both involve destination-related connection counts,
+      but their aggregation definitions differ.
+
+  - nsl_kdd: dst_host_srv_count
+    unsw_nb15:
+      - ct_srv_dst
+    relationship: partial
+    status: pending_review
+    reason: >
+      Both involve service and destination context,
+      but their exact grouping definitions differ.
+
+  - nsl_kdd: flag
+    unsw_nb15:
+      - state
+    relationship: related_not_equivalent
+    status: not_approved
+    reason: >
+      Connection flag and protocol state are different
+      concepts and should not be treated as identical.
+
+  - nsl_kdd: serror_rate
+    unsw_nb15:
+      - ct_state_ttl
+    relationship: unrelated_measurements
+    status: rejected
+    reason: >
+      Connection error rate and state-TTL connection count
+      measure different properties.
+
+  - nsl_kdd: same_srv_rate
+    unsw_nb15:
+      - ct_srv_src
+    relationship: related_not_equivalent
+    status: not_approved
+    reason: >
+      A service-rate ratio and a connection count are
+      different measurements.

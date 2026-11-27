@@ -1,0 +1,16 @@
+﻿schema_version: 1
+trust_levels:
+  high_min_compatibility: 0.75
+  medium_min_compatibility: 0.40
+  low_below: 0.40
+class_prior_adjustment:
+  enabled: true
+  file: class_prior_bias.json
+  tuning_data: source validation predictions only
+  method: additive bias on calibrated log probabilities
+  seed: 42
+  grid_min: -2.0
+  grid_max: 2.0
+  grid_step: 0.25
+  passes: 3
+  penalty_per_squared_bias_unit: 0.002

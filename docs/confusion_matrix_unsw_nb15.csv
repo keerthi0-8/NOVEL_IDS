@@ -1,0 +1,11 @@
+,DoS,Normal,Probe_Recon,UNSW_Analysis,UNSW_Backdoor,UNSW_Exploits,UNSW_Fuzzers,UNSW_Generic,UNSW_Shellcode,UNSW_Worms
+DoS,46,23,28,8,3,442,45,0,69,0
+Normal,0,24767,516,1237,0,444,5168,0,230,0
+Probe_Recon,0,11,1864,0,2,153,18,0,72,0
+UNSW_Analysis,0,0,0,0,0,0,0,0,0,0
+UNSW_Backdoor,0,3,1,0,13,9,2,0,7,0
+UNSW_Exploits,18,88,199,37,7,4902,137,0,188,2
+UNSW_Fuzzers,0,1064,110,0,0,80,2720,0,37,0
+UNSW_Generic,25,7,7,3,1,221,62,16270,19,0
+UNSW_Shellcode,0,8,45,0,0,12,21,0,244,0
+UNSW_Worms,0,0,0,0,0,28,2,0,2,0

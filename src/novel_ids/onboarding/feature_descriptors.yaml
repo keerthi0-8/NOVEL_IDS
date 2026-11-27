@@ -1,0 +1,1474 @@
+schema_version: 1
+description: Dataset feature descriptors for NOVEL-IDS. Level 2 semantic groups are reviewed group-only relationships,
+  never equivalent mappings.
+level_definitions:
+  1: Approved equivalent semantic identity
+  2: Related semantic group; not equivalent
+  3: Dataset-specific feature
+feature_count: 83
+level_2_review:
+  status: approved
+  relationship_policy: group_only_or_partial_never_equivalent
+  evidence_policy: retain_per_feature_metadata_evidence_and_confidence
+features:
+- dataset: nsl_kdd
+  original_feature_name: duration
+  metadata_feature_name: duration
+  level: 1
+  classification: common
+  semantic_id: flow_duration
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'duration'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: nsl_kdd
+  original_feature_name: protocol_type
+  metadata_feature_name: protocol_type
+  level: 1
+  classification: common
+  semantic_id: transport_protocol
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: symbolic
+  description: Feature named 'protocol_type'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: nsl_kdd
+  original_feature_name: service
+  metadata_feature_name: service
+  level: 1
+  classification: common
+  semantic_id: network_service
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: symbolic
+  description: Feature named 'service'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: nsl_kdd
+  original_feature_name: flag
+  metadata_feature_name: flag
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_state
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: symbolic
+  description: Feature named 'flag'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD flag describes connection status; UNSW-NB15 state describes protocol-dependent state. Related,
+    not equivalent.
+- dataset: nsl_kdd
+  original_feature_name: src_bytes
+  metadata_feature_name: src_bytes
+  level: 1
+  classification: common
+  semantic_id: source_to_destination_bytes
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'src_bytes'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: nsl_kdd
+  original_feature_name: dst_bytes
+  metadata_feature_name: dst_bytes
+  level: 1
+  classification: common
+  semantic_id: destination_to_source_bytes
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_bytes'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: nsl_kdd
+  original_feature_name: land
+  metadata_feature_name: land
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: binary
+  description: Feature named 'land'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: nsl_kdd
+  original_feature_name: wrong_fragment
+  metadata_feature_name: wrong_fragment
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: continuous
+  description: Feature named 'wrong_fragment'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: nsl_kdd
+  original_feature_name: urgent
+  metadata_feature_name: urgent
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: continuous
+  description: Feature named 'urgent'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: nsl_kdd
+  original_feature_name: hot
+  metadata_feature_name: hot
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'hot'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: num_failed_logins
+  metadata_feature_name: num_failed_logins
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_failed_logins'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: logged_in
+  metadata_feature_name: logged_in
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: binary
+  description: Feature named 'logged_in'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: num_compromised
+  metadata_feature_name: num_compromised
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_compromised'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: root_shell
+  metadata_feature_name: root_shell
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'root_shell'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: su_attempted
+  metadata_feature_name: su_attempted
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'su_attempted'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: num_root
+  metadata_feature_name: num_root
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_root'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: num_file_creations
+  metadata_feature_name: num_file_creations
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_file_creations'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: num_shells
+  metadata_feature_name: num_shells
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_shells'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: num_access_files
+  metadata_feature_name: num_access_files
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: host_and_privilege_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'num_access_files'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD feature definitions describe hot indicators, compromised conditions, root activity, file creation,
+    shells, and access files.
+- dataset: nsl_kdd
+  original_feature_name: num_outbound_cmds
+  metadata_feature_name: num_outbound_cmds
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: continuous
+  description: Feature named 'num_outbound_cmds'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: nsl_kdd
+  original_feature_name: is_host_login
+  metadata_feature_name: is_host_login
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: binary
+  description: Feature named 'is_host_login'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: is_guest_login
+  metadata_feature_name: is_guest_login
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: binary
+  description: Feature named 'is_guest_login'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: nsl_kdd
+  original_feature_name: count
+  metadata_feature_name: count
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'count'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: nsl_kdd
+  original_feature_name: srv_count
+  metadata_feature_name: srv_count
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'srv_count'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: nsl_kdd
+  original_feature_name: serror_rate
+  metadata_feature_name: serror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'serror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: srv_serror_rate
+  metadata_feature_name: srv_serror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'srv_serror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: rerror_rate
+  metadata_feature_name: rerror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'rerror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: srv_rerror_rate
+  metadata_feature_name: srv_rerror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'srv_rerror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: same_srv_rate
+  metadata_feature_name: same_srv_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'same_srv_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: diff_srv_rate
+  metadata_feature_name: diff_srv_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'diff_srv_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: srv_diff_host_rate
+  metadata_feature_name: srv_diff_host_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'srv_diff_host_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_count
+  metadata_feature_name: dst_host_count
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_count'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_srv_count
+  metadata_feature_name: dst_host_srv_count
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_srv_count'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_same_srv_rate
+  metadata_feature_name: dst_host_same_srv_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_same_srv_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_diff_srv_rate
+  metadata_feature_name: dst_host_diff_srv_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_diff_srv_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_same_src_port_rate
+  metadata_feature_name: dst_host_same_src_port_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_same_src_port_rate'. A detailed semantic description requires documentation
+    review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_srv_diff_host_rate
+  metadata_feature_name: dst_host_srv_diff_host_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_context_ratio
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_srv_diff_host_rate'. A detailed semantic description requires documentation
+    review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions describe ratios involving services, hosts, and source ports. Their individual denominators
+    and meanings must remain distinct.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_serror_rate
+  metadata_feature_name: dst_host_serror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_serror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_srv_serror_rate
+  metadata_feature_name: dst_host_srv_serror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_srv_serror_rate'. A detailed semantic description requires documentation
+    review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_rerror_rate
+  metadata_feature_name: dst_host_rerror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_rerror_rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: nsl_kdd
+  original_feature_name: dst_host_srv_rerror_rate
+  metadata_feature_name: dst_host_srv_rerror_rate
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_error_rate
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: continuous
+  description: Feature named 'dst_host_srv_rerror_rate'. A detailed semantic description requires documentation
+    review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD definitions identify SYN-error and REJ-error rates. These remain distinct measurements.
+- dataset: unsw_nb15
+  original_feature_name: dur
+  metadata_feature_name: dur
+  level: 1
+  classification: common
+  semantic_id: flow_duration
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: Float
+  description: Record total duration
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: unsw_nb15
+  original_feature_name: proto
+  metadata_feature_name: proto
+  level: 1
+  classification: common
+  semantic_id: transport_protocol
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: nominal
+  description: Transaction protocol
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: unsw_nb15
+  original_feature_name: service
+  metadata_feature_name: service
+  level: 1
+  classification: common
+  semantic_id: network_service
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: nominal
+  description: http, ftp, smtp, ssh, dns, ftp-data ,irc  and (-) if not much used service
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: unsw_nb15
+  original_feature_name: state
+  metadata_feature_name: state
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_state
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: nominal
+  description: Indicates to the state and its dependent protocol, e.g. ACC, CLO, CON, ECO, ECR, FIN, INT, MAS, PAR,
+    REQ, RST, TST, TXD, URH, URN, and (-) (if not used state)
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: NSL-KDD flag describes connection status; UNSW-NB15 state describes protocol-dependent state. Related,
+    not equivalent.
+- dataset: unsw_nb15
+  original_feature_name: spkts
+  metadata_feature_name: Spkts
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_volume
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Source to destination packet count
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source-to-destination and destination-to-source packet counts.
+- dataset: unsw_nb15
+  original_feature_name: dpkts
+  metadata_feature_name: Dpkts
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_volume
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Destination to source packet count
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source-to-destination and destination-to-source packet counts.
+- dataset: unsw_nb15
+  original_feature_name: sbytes
+  metadata_feature_name: sbytes
+  level: 1
+  classification: common
+  semantic_id: source_to_destination_bytes
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: Integer
+  description: Source to destination transaction bytes
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: unsw_nb15
+  original_feature_name: dbytes
+  metadata_feature_name: dbytes
+  level: 1
+  classification: common
+  semantic_id: destination_to_source_bytes
+  semantic_group: null
+  relationship: equivalent
+  confidence: high
+  review_status: approved
+  data_type: Integer
+  description: Destination to source transaction bytes
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Existing approved semantic feature registry mapping.
+- dataset: unsw_nb15
+  original_feature_name: rate
+  metadata_feature_name: null
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: unknown
+  description: Feature named 'rate'. A detailed semantic description requires documentation review.
+  description_source: feature_name_inference
+  description_confidence: low
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: unsw_nb15
+  original_feature_name: sttl
+  metadata_feature_name: sttl
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: ttl_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: Source to destination time to live value
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source and destination TTL values.
+- dataset: unsw_nb15
+  original_feature_name: dttl
+  metadata_feature_name: dttl
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: ttl_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: Destination to source time to live value
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source and destination TTL values.
+- dataset: unsw_nb15
+  original_feature_name: sload
+  metadata_feature_name: Sload
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: bandwidth_load
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Source bits per second
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: bits_per_second
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination load in bits per second.
+- dataset: unsw_nb15
+  original_feature_name: dload
+  metadata_feature_name: Dload
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: bandwidth_load
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Destination bits per second
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: bits_per_second
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination load in bits per second.
+- dataset: unsw_nb15
+  original_feature_name: sloss
+  metadata_feature_name: sloss
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_loss_or_retransmission
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: Source packets retransmitted or dropped
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes source and destination packets retransmitted or dropped.
+- dataset: unsw_nb15
+  original_feature_name: dloss
+  metadata_feature_name: dloss
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_loss_or_retransmission
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: Destination packets retransmitted or dropped
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes source and destination packets retransmitted or dropped.
+- dataset: unsw_nb15
+  original_feature_name: sinpkt
+  metadata_feature_name: Sintpkt
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_interarrival_time
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Source interpacket arrival time (mSec)
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: milliseconds
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination inter-packet arrival times in milliseconds.
+- dataset: unsw_nb15
+  original_feature_name: dinpkt
+  metadata_feature_name: Dintpkt
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_interarrival_time
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Destination interpacket arrival time (mSec)
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: milliseconds
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination inter-packet arrival times in milliseconds.
+- dataset: unsw_nb15
+  original_feature_name: sjit
+  metadata_feature_name: Sjit
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_jitter
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Source jitter (mSec)
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: milliseconds
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination jitter in milliseconds.
+- dataset: unsw_nb15
+  original_feature_name: djit
+  metadata_feature_name: Djit
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_jitter
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: Destination jitter (mSec)
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: milliseconds
+  unit_status: documented
+  evidence: UNSW-NB15 metadata identifies source and destination jitter in milliseconds.
+- dataset: unsw_nb15
+  original_feature_name: swin
+  metadata_feature_name: swin
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: tcp_window_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Source TCP window advertisement value
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source and destination TCP window advertisement values.
+- dataset: unsw_nb15
+  original_feature_name: stcpb
+  metadata_feature_name: stcpb
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: integer
+  description: Source TCP base sequence number
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: unsw_nb15
+  original_feature_name: dtcpb
+  metadata_feature_name: dtcpb
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: integer
+  description: Destination TCP base sequence number
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.
+- dataset: unsw_nb15
+  original_feature_name: dwin
+  metadata_feature_name: dwin
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: tcp_window_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Destination TCP window advertisement value
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies source and destination TCP window advertisement values.
+- dataset: unsw_nb15
+  original_feature_name: tcprtt
+  metadata_feature_name: tcprtt
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: tcp_handshake_timing
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: TCP connection setup round-trip time, the sum of ’synack’ and ’ackdat’.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes TCP round-trip time and separate handshake intervals. These are related
+    but distinct measurements.
+- dataset: unsw_nb15
+  original_feature_name: synack
+  metadata_feature_name: synack
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: tcp_handshake_timing
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: TCP connection setup time, the time between the SYN and the SYN_ACK packets.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes TCP round-trip time and separate handshake intervals. These are related
+    but distinct measurements.
+- dataset: unsw_nb15
+  original_feature_name: ackdat
+  metadata_feature_name: ackdat
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: tcp_handshake_timing
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Float
+  description: TCP connection setup time, the time between the SYN_ACK and the ACK packets.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes TCP round-trip time and separate handshake intervals. These are related
+    but distinct measurements.
+- dataset: unsw_nb15
+  original_feature_name: smean
+  metadata_feature_name: smeansz
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_size_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Mean of the ?ow packet size transmitted by the src
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies mean packet sizes transmitted by source and destination.
+- dataset: unsw_nb15
+  original_feature_name: dmean
+  metadata_feature_name: dmeansz
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: packet_size_measurement
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Mean of the ?ow packet size transmitted by the dst
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata identifies mean packet sizes transmitted by source and destination.
+- dataset: unsw_nb15
+  original_feature_name: trans_depth
+  metadata_feature_name: trans_depth
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: application_protocol_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Represents the pipelined depth into the connection of http request/response transaction
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes FTP commands, HTTP methods, and HTTP transaction depth.
+- dataset: unsw_nb15
+  original_feature_name: response_body_len
+  metadata_feature_name: res_bdy_len
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: application_content_size
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: Actual uncompressed content size of the data transferred from the server’s http service.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes the uncompressed response-body content size.
+- dataset: unsw_nb15
+  original_feature_name: ct_srv_src
+  metadata_feature_name: ct_srv_src
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No. of connections that contain the same service (14) and source address (1) in 100 connections according
+    to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: ct_state_ttl
+  metadata_feature_name: ct_state_ttl
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: state_ttl_condition_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: No. for each state (6) according to specific range of values for source/destination time to live
+    (10) (11).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes a count associated with each state according to source and destination
+    TTL ranges.
+- dataset: unsw_nb15
+  original_feature_name: ct_dst_ltm
+  metadata_feature_name: ct_dst_ltm
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No. of connections of the same destination address (3) in 100 connections according to the last time
+    (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: ct_src_dport_ltm
+  metadata_feature_name: ct_src_dport_ltm
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No of connections of the same source address (1) and the destination port (4) in 100 connections
+    according to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: ct_dst_sport_ltm
+  metadata_feature_name: ct_dst_sport_ltm
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No of connections of the same destination address (3) and the source port (2) in 100 connections
+    according to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: ct_dst_src_ltm
+  metadata_feature_name: ct_dst_src_ltm
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No of connections of the same source (1) and the destination (3) address in in 100 connections according
+    to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: is_ftp_login
+  metadata_feature_name: is_ftp_login
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: authentication_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Binary
+  description: If the ftp session is accessed by user and password then 1 else 0.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Feature definitions identify login status, failed logins, host/guest access, shell privileges, and FTP
+    login.
+- dataset: unsw_nb15
+  original_feature_name: ct_ftp_cmd
+  metadata_feature_name: ct_ftp_cmd
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: application_protocol_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No of flows that has a command in ftp session.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes FTP commands, HTTP methods, and HTTP transaction depth.
+- dataset: unsw_nb15
+  original_feature_name: ct_flw_http_mthd
+  metadata_feature_name: ct_flw_http_mthd
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: application_protocol_activity
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: Integer
+  description: No. of flows that has methods such as Get and Post in http service.
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: UNSW-NB15 metadata describes FTP commands, HTTP methods, and HTTP transaction depth.
+- dataset: unsw_nb15
+  original_feature_name: ct_src_ltm
+  metadata_feature_name: ct_src_ ltm
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No. of connections of the same source address (1) in 100 connections according to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: ct_srv_dst
+  metadata_feature_name: ct_srv_dst
+  level: 2
+  classification: semantic_group_candidate
+  semantic_id: null
+  semantic_group: connection_history_count
+  relationship: group_only
+  confidence: medium
+  review_status: approved
+  data_type: integer
+  description: No. of connections that contain the same service (14) and destination address (3) in 100 connections
+    according to the last time (26).
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: Both datasets contain connection-count features, but their observation windows and counting conditions
+    differ. Group-only relationship.
+- dataset: unsw_nb15
+  original_feature_name: is_sm_ips_ports
+  metadata_feature_name: is_sm_ips_ports
+  level: 3
+  classification: dataset_specific
+  semantic_id: null
+  semantic_group: null
+  relationship: dataset_specific
+  confidence: unassessed
+  review_status: dataset_specific
+  data_type: Binary
+  description: If source (1) and destination (3)IP addresses equal and port numbers (2)(4)  equal then, this variable
+    takes value 1 else 0
+  description_source: UNSW_NB15_feature_metadata
+  description_confidence: high
+  unit: null
+  unit_status: unknown_or_not_provided
+  evidence: No approved equivalent mapping or reviewed semantic group assignment exists.

@@ -1,0 +1,71 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# IDE
+.vscode/
+
+# Model checkpoints
+models/*.pt
+models/*.pth
+models/*.ckpt
+
+# Generated results
+results/*
+!results/.gitkeep
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Datasets and generated data artifacts (keep source code/config only)
+data/
+results/*
+!results/.gitkeep
+demo_samples/outputs/
+
+# Model weights and serialized training artifacts
+models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.joblib
+*.pkl
+*.pickle
+*.parquet
+*.feather
+
+# Local backups, logs, temporary files
+recovery_backup/
+*.log
+*.tmp
+
+# Python and tooling caches
+**/__pycache__/
+**/.pytest_cache/
+.ipynb_checkpoints/
+
+# Editor and temporary recovery copies
+*.bak
+*.bak_*
+*.before_*
+*.pre_*
+.DS_Store
+Thumbs.db

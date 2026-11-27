@@ -1,0 +1,1039 @@
+schema_version: 1
+dataset: CIC-DDoS2019
+mapping_scope: documentation and unlabeled feature descriptors only; created before
+  second-run predictions; no labels/performance used
+metadata_file_sha256: 650644352304dc46270e1ae2a8167486460693117338faac22289a82a235d6c9
+level_counts:
+  '1': 4
+  '2': 72
+  '3': 10
+source_common_features:
+- flow_duration
+- transport_protocol
+- network_service
+- source_to_destination_bytes
+- destination_to_source_bytes
+matched_source_common_features:
+- destination_to_source_bytes
+- flow_duration
+- source_to_destination_bytes
+- transport_protocol
+missing_source_common_features:
+- network_service
+features:
+  Flow ID:
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: identifier
+    data_type: symbolic
+  ' Source IP':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: address
+    data_type: symbolic
+  ' Source Port':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: port
+    data_type: continuous
+  ' Destination IP':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: address
+    data_type: symbolic
+  ' Destination Port':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: port
+    data_type: continuous
+  ' Protocol':
+    level: 1
+    semantic_id: transport_protocol
+    semantic_group: null
+    relationship: equivalent
+    confidence: high
+    similarity: 1.0
+    evidence: Clear semantic equivalent to source feature protocol_type; unit/type
+      compatibility checked after declared conversion.
+    unit: iana_protocol_number
+    data_type: symbolic
+  ' Timestamp':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: datetime
+    data_type: symbolic
+  ' Flow Duration':
+    level: 1
+    semantic_id: flow_duration
+    semantic_group: null
+    relationship: equivalent
+    confidence: high
+    similarity: 1.0
+    evidence: Clear semantic equivalent to source feature duration; unit/type compatibility
+      checked after declared conversion.
+    unit: microseconds
+    data_type: continuous
+  ' Total Fwd Packets':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.969611406326294
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets
+    data_type: continuous
+  ' Total Backward Packets':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9655303359031677
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets
+    data_type: continuous
+  Total Length of Fwd Packets:
+    level: 1
+    semantic_id: source_to_destination_bytes
+    semantic_group: null
+    relationship: equivalent
+    confidence: high
+    similarity: 1.0
+    evidence: Clear semantic equivalent to source feature src_bytes; unit/type compatibility
+      checked after declared conversion.
+    unit: bytes
+    data_type: continuous
+  ' Total Length of Bwd Packets':
+    level: 1
+    semantic_id: destination_to_source_bytes
+    semantic_group: null
+    relationship: equivalent
+    confidence: high
+    similarity: 1.0
+    evidence: Clear semantic equivalent to source feature dst_bytes; unit/type compatibility
+      checked after declared conversion.
+    unit: bytes
+    data_type: continuous
+  ' Fwd Packet Length Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9685068130493164
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Fwd Packet Length Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9317873120307922
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Fwd Packet Length Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9796781539916992
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Fwd Packet Length Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8790097832679749
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Bwd Packet Length Max:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9708833694458008
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Bwd Packet Length Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.942231297492981
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Bwd Packet Length Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.979128360748291
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Bwd Packet Length Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8760827779769897
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Flow Bytes/s:
+    level: 2
+    semantic_id: null
+    semantic_group: bandwidth_load
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9827004075050354
+    evidence: Related bandwidth_load descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: bytes_per_second
+    data_type: continuous
+  ' Flow Packets/s':
+    level: 2
+    semantic_id: null
+    semantic_group: bandwidth_load
+    relationship: group_only
+    confidence: medium
+    similarity: 0.970571756362915
+    evidence: Related bandwidth_load descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets_per_second
+    data_type: continuous
+  ' Flow IAT Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8509330749511719
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Flow IAT Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9015098214149475
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Flow IAT Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9418793320655823
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Flow IAT Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.6562663912773132
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  Fwd IAT Total:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9618852734565735
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Fwd IAT Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8799634575843811
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Fwd IAT Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9089919924736023
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Fwd IAT Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.941887617111206
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Fwd IAT Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.5828756093978882
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  Bwd IAT Total:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9609045386314392
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Bwd IAT Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8833466172218323
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Bwd IAT Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9097535610198975
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Bwd IAT Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9418808817863464
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Bwd IAT Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.5606973171234131
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  Fwd PSH Flags:
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.47848066687583923
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' Bwd PSH Flags':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.46184423565864563
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' Fwd URG Flags':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.46494317054748535
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' Bwd URG Flags':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.4657917618751526
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' Fwd Header Length':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.3920321762561798
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Bwd Header Length':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9376541972160339
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Fwd Packets/s:
+    level: 2
+    semantic_id: null
+    semantic_group: bandwidth_load
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9696893692016602
+    evidence: Related bandwidth_load descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets_per_second
+    data_type: continuous
+  ' Bwd Packets/s':
+    level: 2
+    semantic_id: null
+    semantic_group: bandwidth_load
+    relationship: group_only
+    confidence: medium
+    similarity: 0.979052722454071
+    evidence: Related bandwidth_load descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets_per_second
+    data_type: continuous
+  ' Min Packet Length':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9310542941093445
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Max Packet Length':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9722592234611511
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Packet Length Mean':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9831526279449463
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Packet Length Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9800904989242554
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Packet Length Variance':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9310414791107178
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes_squared
+    data_type: continuous
+  FIN Flag Count:
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.46508100628852844
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' SYN Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.3681301772594452
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' RST Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.4818069040775299
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' PSH Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.4649708569049835
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' ACK Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.5058404207229614
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' URG Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.5263887643814087
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' CWE Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.5190576910972595
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' ECE Flag Count':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_state
+    relationship: group_only
+    confidence: medium
+    similarity: 0.4658719301223755
+    evidence: Related connection_state descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: count
+    data_type: continuous
+  ' Down/Up Ratio':
+    level: 2
+    semantic_id: null
+    semantic_group: connection_context_ratio
+    relationship: group_only
+    confidence: medium
+    similarity: 0.7724214792251587
+    evidence: Related connection_context_ratio descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: dimensionless
+    data_type: continuous
+  ' Average Packet Size':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.982069730758667
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Avg Fwd Segment Size':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9791929125785828
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Avg Bwd Segment Size':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9788882732391357
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Fwd Header Length.1':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.3919261395931244
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Fwd Avg Bytes/Bulk:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.23260396718978882
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes_per_bulk
+    data_type: continuous
+  ' Fwd Avg Packets/Bulk':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.2651686370372772
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets_per_bulk
+    data_type: continuous
+  ' Fwd Avg Bulk Rate':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: 'Group candidate rejected: descriptor similarity 0.1253 below threshold.'
+    unit: bulk_rate
+    data_type: continuous
+  ' Bwd Avg Bytes/Bulk':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.23318003118038177
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes_per_bulk
+    data_type: continuous
+  ' Bwd Avg Packets/Bulk':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.2654232978820801
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets_per_bulk
+    data_type: continuous
+  Bwd Avg Bulk Rate:
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: 'Group candidate rejected: descriptor similarity 0.1255 below threshold.'
+    unit: bulk_rate
+    data_type: continuous
+  Subflow Fwd Packets:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9691234230995178
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets
+    data_type: continuous
+  ' Subflow Fwd Bytes':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9545599818229675
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Subflow Bwd Packets':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9654225707054138
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets
+    data_type: continuous
+  ' Subflow Bwd Bytes':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9490832686424255
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Init_Win_bytes_forward:
+    level: 2
+    semantic_id: null
+    semantic_group: tcp_window_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9476314187049866
+    evidence: Related tcp_window_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' Init_Win_bytes_backward':
+    level: 2
+    semantic_id: null
+    semantic_group: tcp_window_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9556398987770081
+    evidence: Related tcp_window_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  ' act_data_pkt_fwd':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_volume
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9579961895942688
+    evidence: Related packet_volume descriptor only; not an equivalent feature. CICFlowMeter
+      description supports group-level association; no source feature identity is
+      asserted.
+    unit: packets
+    data_type: continuous
+  ' min_seg_size_forward':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_size_measurement
+    relationship: group_only
+    confidence: medium
+    similarity: 0.269755095243454
+    evidence: Related packet_size_measurement descriptor only; not an equivalent feature.
+      CICFlowMeter description supports group-level association; no source feature
+      identity is asserted.
+    unit: bytes
+    data_type: continuous
+  Active Mean:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.817013144493103
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Active Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.7421416640281677
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Active Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8265188932418823
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Active Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8150818347930908
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  Idle Mean:
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9367649555206299
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Idle Std':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.8316623568534851
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Idle Max':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9380322694778442
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  ' Idle Min':
+    level: 2
+    semantic_id: null
+    semantic_group: packet_interarrival_time
+    relationship: group_only
+    confidence: medium
+    similarity: 0.9356630444526672
+    evidence: Related packet_interarrival_time descriptor only; not an equivalent
+      feature. CICFlowMeter description supports group-level association; no source
+      feature identity is asserted.
+    unit: microseconds
+    data_type: continuous
+  SimillarHTTP:
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: text
+    data_type: symbolic
+  ' Inbound':
+    level: 3
+    semantic_id: null
+    semantic_group: null
+    relationship: dataset_specific
+    confidence: unassessed
+    similarity: null
+    evidence: No clear source semantic equivalent or approved group-level match; retained
+      as dataset-specific.
+    unit: binary
+    data_type: binary

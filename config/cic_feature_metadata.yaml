@@ -1,0 +1,1459 @@
+schema_version: 1
+dataset: CIC-DDoS2019
+source_url: https://www.unb.ca/cic/datasets/ddos-2019.html
+feature_documentation:
+- https://github.com/jordan178169/CICFlowMeter/blob/master/ReadMe.txt
+- https://github.com/ahlashkari/CICFlowMeter/blob/master/src/main/java/cic/cs/unb/ca/jnetpcap/FlowFeature.java
+transform_definitions:
+  microseconds_to_seconds: Divide time values by 1,000,000; CICFlowMeter duration/IAT/active/idle
+    measurements are in microseconds.
+  iana_protocol_to_name: Map IANA IP protocol numbers to names (1=icmp, 6=tcp, 17=udp,
+    47=gre, 50=esp, 58=ipv6-icmp); preserve other values as protocol_<number>.
+features:
+  Flow ID:
+    description: Bidirectional flow identifier derived from endpoint tuple and protocol
+    unit: identifier
+    network_meaning: Flow key; not an attack feature
+    data_type: symbolic
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Source IP':
+    description: Source IP address of the forward direction
+    unit: address
+    network_meaning: Origin endpoint address
+    data_type: symbolic
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Source Port':
+    description: Source transport port of the forward direction
+    unit: port
+    network_meaning: Origin transport endpoint
+    data_type: continuous
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Destination IP':
+    description: Destination IP address of the forward direction
+    unit: address
+    network_meaning: Destination endpoint address
+    data_type: symbolic
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Destination Port':
+    description: Destination transport port of the forward direction
+    unit: port
+    network_meaning: Destination transport endpoint
+    data_type: continuous
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Protocol':
+    description: IANA IP protocol number carried by the flow
+    unit: iana_protocol_number
+    network_meaning: Transport protocol identifier
+    data_type: symbolic
+    mapping:
+      level: 1
+      target_semantic_id: transport_protocol
+      target_source_feature: protocol_type
+      relationship: equivalent
+      confidence: high
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: iana_protocol_to_name
+      evidence: Clear semantic equivalent to source feature protocol_type; unit/type
+        compatibility checked after declared conversion.
+    value_transform: iana_protocol_to_name
+  ' Timestamp':
+    description: Timestamp associated with the start of the flow
+    unit: datetime
+    network_meaning: Flow start time
+    data_type: symbolic
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Flow Duration':
+    description: Duration of the bidirectional flow
+    unit: microseconds
+    network_meaning: Elapsed time between first and last observed packet
+    data_type: continuous
+    mapping:
+      level: 1
+      target_semantic_id: flow_duration
+      target_source_feature: duration
+      relationship: equivalent
+      confidence: high
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Clear semantic equivalent to source feature duration; unit/type compatibility
+        checked after declared conversion.
+    value_transform: microseconds_to_seconds
+  ' Total Fwd Packets':
+    description: Total number of packets in the forward direction
+    unit: packets
+    network_meaning: Forward packet volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Total Backward Packets':
+    description: Total number of packets in the backward direction
+    unit: packets
+    network_meaning: Backward packet volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  Total Length of Fwd Packets:
+    description: Total bytes carried by forward-direction packets
+    unit: bytes
+    network_meaning: Forward byte volume
+    data_type: continuous
+    mapping:
+      level: 1
+      target_semantic_id: source_to_destination_bytes
+      target_source_feature: src_bytes
+      relationship: equivalent
+      confidence: high
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Clear semantic equivalent to source feature src_bytes; unit/type compatibility
+        checked after declared conversion.
+    value_transform: null
+  ' Total Length of Bwd Packets':
+    description: Total bytes carried by backward-direction packets
+    unit: bytes
+    network_meaning: Backward byte volume
+    data_type: continuous
+    mapping:
+      level: 1
+      target_semantic_id: destination_to_source_bytes
+      target_source_feature: dst_bytes
+      relationship: equivalent
+      confidence: high
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Clear semantic equivalent to source feature dst_bytes; unit/type compatibility
+        checked after declared conversion.
+    value_transform: null
+  ' Fwd Packet Length Max':
+    description: Maximum forward packet length
+    unit: bytes
+    network_meaning: Forward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Fwd Packet Length Min':
+    description: Minimum forward packet length
+    unit: bytes
+    network_meaning: Forward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Fwd Packet Length Mean':
+    description: Mean forward packet length
+    unit: bytes
+    network_meaning: Forward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Fwd Packet Length Std':
+    description: Standard deviation of forward packet lengths
+    unit: bytes
+    network_meaning: Forward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Bwd Packet Length Max:
+    description: Maximum backward packet length
+    unit: bytes
+    network_meaning: Backward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Bwd Packet Length Min':
+    description: Minimum backward packet length
+    unit: bytes
+    network_meaning: Backward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Bwd Packet Length Mean':
+    description: Mean backward packet length
+    unit: bytes
+    network_meaning: Backward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Bwd Packet Length Std':
+    description: Standard deviation of backward packet lengths
+    unit: bytes
+    network_meaning: Backward packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Flow Bytes/s:
+    description: Number of flow bytes transferred per second
+    unit: bytes_per_second
+    network_meaning: Bidirectional byte rate
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Flow Packets/s':
+    description: Number of flow packets transferred per second
+    unit: packets_per_second
+    network_meaning: Bidirectional packet rate
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Flow IAT Mean':
+    description: Mean inter-arrival time between consecutive flow packets
+    unit: microseconds
+    network_meaning: Flow timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Flow IAT Std':
+    description: Standard deviation of flow packet inter-arrival times
+    unit: microseconds
+    network_meaning: Flow timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Flow IAT Max':
+    description: Maximum flow packet inter-arrival time
+    unit: microseconds
+    network_meaning: Flow timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Flow IAT Min':
+    description: Minimum flow packet inter-arrival time
+    unit: microseconds
+    network_meaning: Flow timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  Fwd IAT Total:
+    description: Total inter-arrival time in the forward direction
+    unit: microseconds
+    network_meaning: Forward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Fwd IAT Mean':
+    description: Mean inter-arrival time in the forward direction
+    unit: microseconds
+    network_meaning: Forward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Fwd IAT Std':
+    description: Standard deviation of forward inter-arrival times
+    unit: microseconds
+    network_meaning: Forward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Fwd IAT Max':
+    description: Maximum forward inter-arrival time
+    unit: microseconds
+    network_meaning: Forward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Fwd IAT Min':
+    description: Minimum forward inter-arrival time
+    unit: microseconds
+    network_meaning: Forward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  Bwd IAT Total:
+    description: Total inter-arrival time in the backward direction
+    unit: microseconds
+    network_meaning: Backward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Bwd IAT Mean':
+    description: Mean inter-arrival time in the backward direction
+    unit: microseconds
+    network_meaning: Backward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Bwd IAT Std':
+    description: Standard deviation of backward inter-arrival times
+    unit: microseconds
+    network_meaning: Backward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Bwd IAT Max':
+    description: Maximum backward inter-arrival time
+    unit: microseconds
+    network_meaning: Backward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Bwd IAT Min':
+    description: Minimum backward inter-arrival time
+    unit: microseconds
+    network_meaning: Backward timing distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  Fwd PSH Flags:
+    description: Count of forward packets with TCP PSH flag set
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Bwd PSH Flags':
+    description: Count of backward packets with TCP PSH flag set
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Fwd URG Flags':
+    description: Count of forward packets with TCP URG flag set
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Bwd URG Flags':
+    description: Count of backward packets with TCP URG flag set
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Fwd Header Length':
+    description: Total header bytes in forward direction
+    unit: bytes
+    network_meaning: Forward protocol header size
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Bwd Header Length':
+    description: Total header bytes in backward direction
+    unit: bytes
+    network_meaning: Backward protocol header size
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Fwd Packets/s:
+    description: Forward-direction packet rate
+    unit: packets_per_second
+    network_meaning: Forward packet rate
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Bwd Packets/s':
+    description: Backward-direction packet rate
+    unit: packets_per_second
+    network_meaning: Backward packet rate
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Min Packet Length':
+    description: Minimum packet length observed in the flow
+    unit: bytes
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Max Packet Length':
+    description: Maximum packet length observed in the flow
+    unit: bytes
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Packet Length Mean':
+    description: Mean packet length in the flow
+    unit: bytes
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Packet Length Std':
+    description: Standard deviation of packet lengths in the flow
+    unit: bytes
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Packet Length Variance':
+    description: Variance of packet lengths in the flow
+    unit: bytes_squared
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  FIN Flag Count:
+    description: Number of packets with TCP FIN flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' SYN Flag Count':
+    description: Number of packets with TCP SYN flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' RST Flag Count':
+    description: Number of packets with TCP RST flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' PSH Flag Count':
+    description: Number of packets with TCP PSH flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' ACK Flag Count':
+    description: Number of packets with TCP ACK flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' URG Flag Count':
+    description: Number of packets with TCP URG flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' CWE Flag Count':
+    description: Number of packets with TCP CWR flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' ECE Flag Count':
+    description: Number of packets with TCP ECE flag
+    unit: count
+    network_meaning: TCP control flag frequency
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_state
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_state descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Down/Up Ratio':
+    description: Ratio between download and upload traffic
+    unit: dimensionless
+    network_meaning: Directional traffic balance
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: connection_context_ratio
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related connection_context_ratio descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Average Packet Size':
+    description: Average packet size over the flow
+    unit: bytes
+    network_meaning: Packet-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Avg Fwd Segment Size':
+    description: Average segment size in the forward direction
+    unit: bytes
+    network_meaning: Forward segment-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Avg Bwd Segment Size':
+    description: Average segment size in the backward direction
+    unit: bytes
+    network_meaning: Backward segment-size distribution
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Fwd Header Length.1':
+    description: Duplicate CICFlowMeter forward header length field
+    unit: bytes
+    network_meaning: Forward protocol header size
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Fwd Avg Bytes/Bulk:
+    description: Average forward bytes per bulk transfer
+    unit: bytes_per_bulk
+    network_meaning: Forward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Fwd Avg Packets/Bulk':
+    description: Average forward packets per bulk transfer
+    unit: packets_per_bulk
+    network_meaning: Forward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Fwd Avg Bulk Rate':
+    description: Average forward bulk transfer rate
+    unit: bulk_rate
+    network_meaning: Forward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Bwd Avg Bytes/Bulk':
+    description: Average backward bytes per bulk transfer
+    unit: bytes_per_bulk
+    network_meaning: Backward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Bwd Avg Packets/Bulk':
+    description: Average backward packets per bulk transfer
+    unit: packets_per_bulk
+    network_meaning: Backward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  Bwd Avg Bulk Rate:
+    description: Average backward bulk transfer rate
+    unit: bulk_rate
+    network_meaning: Backward bulk transfer statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: bandwidth_load
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related bandwidth_load descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  Subflow Fwd Packets:
+    description: Average number of forward packets in a subflow
+    unit: packets
+    network_meaning: Forward subflow volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Subflow Fwd Bytes':
+    description: Average number of forward bytes in a subflow
+    unit: bytes
+    network_meaning: Forward subflow volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Subflow Bwd Packets':
+    description: Average number of backward packets in a subflow
+    unit: packets
+    network_meaning: Backward subflow volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' Subflow Bwd Bytes':
+    description: Average number of backward bytes in a subflow
+    unit: bytes
+    network_meaning: Backward subflow volume
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Init_Win_bytes_forward:
+    description: Initial TCP window size in forward direction
+    unit: bytes
+    network_meaning: Forward TCP receive-window size
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: tcp_window_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related tcp_window_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' Init_Win_bytes_backward':
+    description: Initial TCP window size in backward direction
+    unit: bytes
+    network_meaning: Backward TCP receive-window size
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: tcp_window_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related tcp_window_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  ' act_data_pkt_fwd':
+    description: Count of forward packets with at least one byte of TCP payload
+    unit: packets
+    network_meaning: Forward data-bearing packet count
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_volume
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_volume descriptor only; not an equivalent feature.
+        CICFlowMeter description supports group-level association; no source feature
+        identity is asserted.
+    value_transform: null
+  ' min_seg_size_forward':
+    description: Minimum TCP segment size observed in forward direction
+    unit: bytes
+    network_meaning: Forward segment-size statistic
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_size_measurement
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: null
+      evidence: Related packet_size_measurement descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: null
+  Active Mean:
+    description: Mean active period before a flow becomes idle
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Active Std':
+    description: Standard deviation of active periods
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Active Max':
+    description: Maximum active period
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Active Min':
+    description: Minimum active period
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  Idle Mean:
+    description: Mean idle period before a flow becomes active
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Idle Std':
+    description: Standard deviation of idle periods
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Idle Max':
+    description: Maximum idle period
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  ' Idle Min':
+    description: Minimum idle period
+    unit: microseconds
+    network_meaning: Flow active/idle timing
+    data_type: continuous
+    mapping:
+      level: 2
+      semantic_group: packet_interarrival_time
+      relationship: group_only
+      confidence: medium
+      unit_compatible: true
+      type_compatible: true
+      declared_transform: microseconds_to_seconds
+      evidence: Related packet_interarrival_time descriptor only; not an equivalent
+        feature. CICFlowMeter description supports group-level association; no source
+        feature identity is asserted.
+    value_transform: microseconds_to_seconds
+  SimillarHTTP:
+    description: HTTP request URI or host-like application string recorded by the
+      extractor
+    unit: text
+    network_meaning: Application-layer request identifier
+    data_type: symbolic
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null
+  ' Inbound':
+    description: Direction indicator for inbound traffic
+    unit: binary
+    network_meaning: Traffic direction flag
+    data_type: binary
+    mapping:
+      level: 3
+      relationship: dataset_specific
+      confidence: unassessed
+      unit_compatible: false
+      type_compatible: false
+      declared_transform: null
+      evidence: No clear source semantic equivalent or approved group-level match;
+        retained as dataset-specific.
+    value_transform: null

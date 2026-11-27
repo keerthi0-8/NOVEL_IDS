@@ -1,0 +1,436 @@
+{
+  "method": "additive per-class bias on calibrated log probabilities",
+  "grid": [
+    -2.0,
+    -1.75,
+    -1.5,
+    -1.25,
+    -1.0,
+    -0.75,
+    -0.5,
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0
+  ],
+  "passes": 3,
+  "seed": 42,
+  "objective": "mean of per-dataset validation macro-F1 minus 0.002 * sum(bias^2)",
+  "classes": [
+    "Normal",
+    "DoS",
+    "Probe_Recon",
+    "UNSW_Exploits",
+    "UNSW_Fuzzers",
+    "UNSW_Generic",
+    "UNSW_Analysis",
+    "UNSW_Backdoor",
+    "UNSW_Shellcode",
+    "UNSW_Worms",
+    "NSL_R2L",
+    "NSL_U2R"
+  ],
+  "bias": {
+    "Normal": 0.25,
+    "DoS": 0.25,
+    "Probe_Recon": 0.0,
+    "UNSW_Exploits": 0.0,
+    "UNSW_Fuzzers": 0.75,
+    "UNSW_Generic": 0.0,
+    "UNSW_Analysis": 0.25,
+    "UNSW_Backdoor": 0.5,
+    "UNSW_Shellcode": 0.0,
+    "UNSW_Worms": 0.25,
+    "NSL_R2L": -0.75,
+    "NSL_U2R": -0.75
+  },
+  "validation_before": {
+    "nsl_kdd": {
+      "macro_f1": 0.9103156705879618,
+      "accuracy": 0.9966100342984765
+    },
+    "unsw_nb15": {
+      "macro_f1": 0.5655719098519773,
+      "accuracy": 0.7968726325040153
+    }
+  },
+  "validation_after": {
+    "nsl_kdd": {
+      "macro_f1": 0.9360300960550114,
+      "accuracy": 0.9975273191353593
+    },
+    "unsw_nb15": {
+      "macro_f1": 0.5843967225139213,
+      "accuracy": 0.7877814479226644
+    }
+  },
+  "trace": [
+    {
+      "pass": 1,
+      "class": "Normal",
+      "bias": 0.25,
+      "objective": 0.7408056364226282,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9215050420394814,
+        "unsw_nb15": 0.5603562308057752
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Backdoor",
+      "bias": 0.5,
+      "objective": 0.7424539971080314,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9215050420394814,
+        "unsw_nb15": 0.5646529521765814
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Analysis",
+      "bias": 0.25,
+      "objective": 0.7432469957084695,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9215050420394814,
+        "unsw_nb15": 0.5664889493774578
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Worms",
+      "bias": 0.25,
+      "objective": 0.747462325029729,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9215050420394814,
+        "unsw_nb15": 0.5751696080199765
+      }
+    },
+    {
+      "pass": 1,
+      "class": "NSL_U2R",
+      "bias": -0.75,
+      "objective": 0.7507528220287717,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9303360360375669,
+        "unsw_nb15": 0.5751696080199765
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Exploits",
+      "bias": 0.0,
+      "objective": 0.7507528220287717,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9303360360375669,
+        "unsw_nb15": 0.5751696080199765
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Generic",
+      "bias": 0.0,
+      "objective": 0.7507528220287717,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9303360360375669,
+        "unsw_nb15": 0.5751696080199765
+      }
+    },
+    {
+      "pass": 1,
+      "class": "Probe_Recon",
+      "bias": -0.25,
+      "objective": 0.7507715004149685,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9303355502349353,
+        "unsw_nb15": 0.5754574505950018
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Fuzzers",
+      "bias": 0.75,
+      "objective": 0.7534764669509336,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9303355502349353,
+        "unsw_nb15": 0.5831173836669319
+      }
+    },
+    {
+      "pass": 1,
+      "class": "NSL_R2L",
+      "bias": -0.75,
+      "objective": 0.7552077072275406,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360480307881494,
+        "unsw_nb15": 0.5831173836669319
+      }
+    },
+    {
+      "pass": 1,
+      "class": "DoS",
+      "bias": 0.25,
+      "objective": 0.7556794768779698,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.936029603563582,
+        "unsw_nb15": 0.5843293501923574
+      }
+    },
+    {
+      "pass": 1,
+      "class": "UNSW_Shellcode",
+      "bias": 0.0,
+      "objective": 0.7556794768779698,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.936029603563582,
+        "unsw_nb15": 0.5843293501923574
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Generic",
+      "bias": 0.0,
+      "objective": 0.7556794768779698,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.936029603563582,
+        "unsw_nb15": 0.5843293501923574
+      }
+    },
+    {
+      "pass": 2,
+      "class": "NSL_U2R",
+      "bias": -0.75,
+      "objective": 0.7556794768779698,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.936029603563582,
+        "unsw_nb15": 0.5843293501923574
+      }
+    },
+    {
+      "pass": 2,
+      "class": "Probe_Recon",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Fuzzers",
+      "bias": 0.75,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Worms",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Backdoor",
+      "bias": 0.5,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "DoS",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Shellcode",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Analysis",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "NSL_R2L",
+      "bias": -0.75,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "UNSW_Exploits",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 2,
+      "class": "Normal",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "NSL_R2L",
+      "bias": -0.75,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Shellcode",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "NSL_U2R",
+      "bias": -0.75,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Generic",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Fuzzers",
+      "bias": 0.75,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "Normal",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Backdoor",
+      "bias": 0.5,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Worms",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "Probe_Recon",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Exploits",
+      "bias": 0.0,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "UNSW_Analysis",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    },
+    {
+      "pass": 3,
+      "class": "DoS",
+      "bias": 0.25,
+      "objective": 0.7558384092844663,
+      "dataset_macro_f1": {
+        "nsl_kdd": 0.9360300960550114,
+        "unsw_nb15": 0.5843967225139213
+      }
+    }
+  ],
+  "bias_sha256": "95c395b55296e7a58b947d985629bebd22a9173243c2c353efb30a7d428119b7"
+}

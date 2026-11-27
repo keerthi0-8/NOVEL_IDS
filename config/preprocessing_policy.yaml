@@ -1,0 +1,93 @@
+
+schema_version: 2
+
+preprocessing_policy:
+
+  numeric_features:
+    infinite_values: replace_with_missing
+    missing_values: training_median
+    transformations:
+      skewed_non_negative:
+        method: log1p
+        selection: training_statistics_and_feature_semantics
+        apply_only_if_non_negative: true
+    scaling:
+      method: robust_scaling
+      fit_on: training_partition_only
+      parameters:
+        - median
+        - interquartile_range
+      zero_iqr_handling: use_scale_1
+
+  categorical_features:
+    encoding: dataset_aware_categorical_encoding
+    preserve_dataset_specific_vocabularies: true
+    unknown_category_token: UNKNOWN
+    share_semantic_identity_not_category_ids: true
+
+  feature_availability:
+    preserve_dataset_specific_features: true
+    availability_mask: M_avail
+    measurement_missingness_mask: M_miss
+    distinguish_absent_features_from_missing_measurements: true
+    absent_feature_values: learned_missing_feature_representation
+    never_zero_fill_absent_features: true
+
+  missing_value_handling:
+    source_training:
+      numeric: training_median
+      categorical: UNKNOWN
+      retain_missingness_mask: true
+    validation:
+      use_training_fitted_parameters_only: true
+    original_test:
+      use_training_fitted_parameters_only: true
+    unseen_dataset:
+      do_not_fit_source_preprocessing_parameters: true
+      new_feature_without_source_statistics: learned_missing_value_embedding
+      do_not_fabricate_numeric_measurements: true
+      numeric_normalization:
+        approved_option: A
+        method: median_iqr
+        fit_on: unseen_unlabeled_available_finite_feature_values_only
+        missing_nonfinite_values: preserve_M_miss_and_zero_storage_placeholder
+        zero_iqr_scale: 1
+        all_missing_feature: zero_center_scale_1_and_preserve_M_miss
+        labels_predictions_metrics_feedback_used: false
+        report_as: zero-shot with unsupervised per-dataset normalization
+
+  data_leakage_prevention:
+    fit_medians_on: training_partition_only
+    fit_scalers_on: training_partition_only
+    fit_category_vocabularies_on: training_partition_only
+    validation_used_for_fitting: false
+    original_test_used_for_fitting: false
+    unseen_data_used_for_source_fitting: false
+    unseen_labels_used_for_normalization: false
+    unseen_predictions_metrics_or_feedback_used_for_normalization: false
+
+  dataset_preservation:
+    discard_uncommon_features: false
+    force_incompatible_feature_alignment: false
+    preserve_original_feature_names: true
+    preserve_original_feature_values: true
+
+  representation_augmentation:
+    value_masking:
+      enabled: true
+      probability: 0.05
+      apply_during: training_only
+      mask: M_miss
+      preserve_availability: true
+    feature_set_dropout:
+      enabled: true
+      probability: 0.10
+      all_dataset_specific_probability: 0.05
+      apply_during: training_only
+      hide_by: M_avail
+      preserve_measurement_missingness_semantics: true
+
+  reproducibility:
+    random_seed: 42
+    save_fitted_preprocessors: true
+    save_transformation_metadata: true
