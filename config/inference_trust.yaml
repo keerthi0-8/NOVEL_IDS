@@ -1,0 +1,15 @@
+# Dataset-level compatibility trust labels; informational, not model rejection thresholds.
+trust_levels:
+  high:
+    minimum_compatibility_score: 0.75
+  medium:
+    minimum_compatibility_score: 0.40
+  low:
+    minimum_compatibility_score: 0.0
+compatibility_score:
+  formula: "(matched_exact + matched_semantic + 0.5 * group_only) / max(1, inspected_external_features)"
+  weights:
+    matched_exact: 1.0
+    matched_semantic: 1.0
+    group_only: 0.5
+    dataset_specific: 0.0

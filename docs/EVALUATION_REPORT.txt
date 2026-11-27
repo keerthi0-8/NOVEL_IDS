@@ -1,0 +1,7 @@
+NON-AUTHORITATIVE LEGACY REPORT
+
+This text report contains stale row counts and must not be used as the current Phase C evaluation.
+
+Use docs/EVALUATION_REPORT.md, rebuilt on 2026-11-27 exclusively from the frozen Phase C saved prediction CSVs and results.json. That report includes the independent/full NSL-KDD and UNSW-NB15 views, pooled summaries, per-class metrics, confusion matrices, selective decision coverage, OOD results, and the separately disclosed post-hoc class-prior comparison.
+
+No model inference or source-test evaluator was run to rebuild the Markdown report. Source-test partitions remain closed.

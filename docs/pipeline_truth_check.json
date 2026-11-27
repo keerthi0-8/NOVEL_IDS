@@ -1,0 +1,339 @@
+{
+  "status": "PASS_VALIDATION_ONLY_RUNTIME_AUDIT",
+  "rows": 64,
+  "dataset": "nsl_kdd",
+  "input": "C:\\Users\\VaishnaviP\\OneDrive\\Desktop\\Documents\\NOVEL_IDS_Project\\demo_samples\\nsl_kdd_validation_sample_unlabeled.csv",
+  "device": "cuda",
+  "model_hashes": {
+    "checkpoint_sha256": "349505b6ebae528246d72b66785b28e296ecdf4ccc6d775244005ae3fd5147c0",
+    "stage5_sha256": "9c4655286d6866e245320adc770dac7662d83b04afa2aedb3c9712e406dcf02b",
+    "stage6_sha256": "1c66f6f8d1a029266e5a637b5db4d6f49881988bf16462d2c3fbc09cd704ecbd",
+    "taxonomy_sha256": "374b5ca004933e794a798ff83bc2219538b3b2623d01fdd3e3c30dc413d2227e",
+    "calibration_sha256": "ae79d95c42dda20cf0c3c5630526ca2474a80d117fb5a8f94bb231eac023ba19"
+  },
+  "onboarding": {
+    "recognized_dataset": "nsl_kdd",
+    "compatibility": {
+      "available_features": 41,
+      "level_counts": {
+        "1": 5,
+        "2": 32,
+        "3": 4
+      },
+      "mean_match_confidence": 1.0,
+      "level1_promotion_allowed": false,
+      "source_slots_unavailable": 0,
+      "recognized_source_schema": true,
+      "recognized_dataset": "nsl_kdd",
+      "compatibility_score": 1.0,
+      "trust_level": "High"
+    },
+    "normalization_mode": "source_fitted",
+    "source_preprocessing": {
+      "method": "stored DatasetPreprocessor.transform",
+      "fit_scope": "audited source training partition only",
+      "normalization_fit_on_upload": false
+    }
+  },
+  "modules": {
+    "Stage5_shared_encoder": {
+      "class": "DualEncoder",
+      "training_mode": false,
+      "parameters_total": 385280,
+      "parameters_trainable": 0,
+      "parameters_frozen": 385280
+    },
+    "Stage6_NSL_branch": {
+      "class": "Stage6ResidualBranch",
+      "training_mode": false,
+      "parameters_total": 99072,
+      "parameters_trainable": 0,
+      "parameters_frozen": 99072
+    },
+    "Stage7_gate": {
+      "class": "AdaptiveResidualFusion",
+      "training_mode": false,
+      "parameters_total": 32896,
+      "parameters_trainable": 32896,
+      "parameters_frozen": 0
+    },
+    "Stage8_alignment": {
+      "class": "Stage8SelectiveAlignment",
+      "training_mode": false,
+      "parameters_total": 33024,
+      "parameters_trainable": 33024,
+      "parameters_frozen": 0
+    },
+    "Stage9_fusion": {
+      "class": "UnifiedRepresentation",
+      "training_mode": true,
+      "parameters_total": 0,
+      "parameters_trainable": 0,
+      "parameters_frozen": 0
+    },
+    "Stage10_transformer": {
+      "class": "Stage10Transformer",
+      "training_mode": false,
+      "parameters_total": 297984,
+      "parameters_trainable": 297984,
+      "parameters_frozen": 0
+    },
+    "Stage11_classifier": {
+      "class": "Stage11Classifier",
+      "training_mode": false,
+      "parameters_total": 1548,
+      "parameters_trainable": 1548,
+      "parameters_frozen": 0
+    },
+    "Feature_identity_encoder": {
+      "class": "FeatureIdentityEncoder",
+      "training_mode": false,
+      "parameters_total": 170368,
+      "parameters_trainable": 0,
+      "parameters_frozen": 170368
+    }
+  },
+  "tensors": {
+    "numeric_input": {
+      "shape": [
+        64,
+        78
+      ],
+      "finite": true,
+      "min": -1.4624277353286743,
+      "max": 3551.0,
+      "mean": 0.8814892768859863,
+      "std": 50.412010192871094,
+      "matrix_rank": 22
+    },
+    "categorical_input": {
+      "shape": [
+        64,
+        78
+      ],
+      "finite": true,
+      "min": 0.0,
+      "max": 68.0,
+      "mean": 0.5849359035491943,
+      "std": 4.5155534744262695,
+      "matrix_rank": 3
+    },
+    "availability_mask": {
+      "shape": [
+        64,
+        78
+      ],
+      "finite": true,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.5256410241127014,
+      "std": 0.4993421137332916,
+      "matrix_rank": 1
+    },
+    "missing_mask": {
+      "shape": [
+        64,
+        78
+      ],
+      "finite": true,
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "std": 0.0,
+      "matrix_rank": 0
+    },
+    "Z_s": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -4.574389457702637,
+      "max": 5.085231781005859,
+      "mean": 0.008448099717497826,
+      "std": 1.2878196239471436,
+      "matrix_rank": 56
+    },
+    "Z_d": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -3.551743984222412,
+      "max": 3.8788950443267822,
+      "mean": -0.008833179250359535,
+      "std": 0.9080547094345093,
+      "matrix_rank": 58
+    },
+    "tokens": {
+      "shape": [
+        64,
+        78,
+        128
+      ],
+      "finite": true,
+      "min": -966.6525268554688,
+      "max": 855.0886840820312,
+      "mean": -0.0009484332404099405,
+      "std": 3.0111167430877686,
+      "matrix_rank": 40
+    },
+    "R": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -4.476144313812256,
+      "max": 4.144237041473389,
+      "mean": 0.0280173197388649,
+      "std": 0.9939230680465698,
+      "matrix_rank": 62
+    },
+    "R_proj": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -4.476144313812256,
+      "max": 4.144237041473389,
+      "mean": 0.0280173197388649,
+      "std": 0.9939230680465698,
+      "matrix_rank": 62
+    },
+    "G": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": 1.0869855032069609e-05,
+      "max": 0.9999921321868896,
+      "mean": 0.3627382516860962,
+      "std": 0.3658590316772461,
+      "matrix_rank": 63
+    },
+    "Z_f": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -4.7101521492004395,
+      "max": 5.41902494430542,
+      "mean": 0.036865800619125366,
+      "std": 1.3426753282546997,
+      "matrix_rank": 64
+    },
+    "A": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -5.786898612976074,
+      "max": 9.963507652282715,
+      "mean": -0.10611169040203094,
+      "std": 1.535325288772583,
+      "matrix_rank": 61
+    },
+    "U": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -3.279021739959717,
+      "max": 3.178861618041992,
+      "mean": -0.04406333342194557,
+      "std": 0.9064561724662781,
+      "matrix_rank": 55
+    },
+    "C": {
+      "shape": [
+        64,
+        1
+      ],
+      "finite": true,
+      "min": 0.3757917881011963,
+      "max": 0.4807530641555786,
+      "mean": 0.4077257215976715,
+      "std": 0.025548499077558517,
+      "matrix_rank": 1
+    },
+    "Z_u": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -4.562840938568115,
+      "max": 5.6899333000183105,
+      "mean": -0.03129800036549568,
+      "std": 1.3493545055389404,
+      "matrix_rank": 64
+    },
+    "Z_t": {
+      "shape": [
+        64,
+        128
+      ],
+      "finite": true,
+      "min": -9.773231506347656,
+      "max": 8.522364616394043,
+      "mean": 0.04303702712059021,
+      "std": 3.44130539894104,
+      "matrix_rank": 64
+    },
+    "classifier_logits": {
+      "shape": [
+        64,
+        12
+      ],
+      "finite": true,
+      "min": -10.720501899719238,
+      "max": 17.954315185546875,
+      "mean": -0.3821423053741455,
+      "std": 5.617466449737549,
+      "matrix_rank": 12
+    }
+  },
+  "gate_G": {
+    "shape": [
+      64,
+      128
+    ],
+    "finite": true,
+    "min": 1.0869855032069609e-05,
+    "max": 0.9999921321868896,
+    "mean": 0.3627382516860962,
+    "std": 0.3658590316772461,
+    "matrix_rank": 63
+  },
+  "alignment_C": {
+    "shape": [
+      64,
+      1
+    ],
+    "finite": true,
+    "min": 0.3757917881011963,
+    "max": 0.4807530641555786,
+    "mean": 0.4077257215976715,
+    "std": 0.025548499077558517,
+    "matrix_rank": 1
+  },
+  "classifier_feed": {
+    "tensor": "Z_t",
+    "shape": [
+      64,
+      128
+    ],
+    "classifier_class": "Stage11Classifier"
+  },
+  "no_test_partitions_loaded": true,
+  "no_test_features_accessed": true,
+  "no_training_or_parameter_updates": true,
+  "note": "One 64-row raw NSL-KDD validation-only forward pass through Stage5-11; no closed test partitions opened."
+}

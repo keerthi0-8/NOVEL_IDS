@@ -1,0 +1,609 @@
+{
+  "source": "C:\\NOVEL_IDS_runs\\phaseC_recovery_20261126\\results.json",
+  "views": [
+    {
+      "view": "nsl_kdd_test_independent",
+      "accuracy": 0.7896709323583181,
+      "macro_precision": 0.8405997552727188,
+      "macro_recall": 0.5941202268740895,
+      "macro_f1": 0.627273499894303,
+      "weighted_precision": 0.8265326285010589,
+      "weighted_recall": 0.7896709323583181,
+      "weighted_f1": 0.7651240501502321,
+      "total": 21880,
+      "per_class": {
+        "Normal": {
+          "precision": 0.7233595391920292,
+          "recall": 0.9674161982094525,
+          "f1": 0.827773571460384,
+          "support": 9606
+        },
+        "DoS": {
+          "precision": 0.9363590688326914,
+          "recall": 0.7919263456090652,
+          "f1": 0.858107589594045,
+          "support": 7060
+        },
+        "Probe_Recon": {
+          "precision": 0.7330873308733087,
+          "recall": 0.7804452204277608,
+          "f1": 0.7560253699788584,
+          "support": 2291
+        },
+        "UNSW_Exploits": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Generic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Worms": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "NSL_R2L": {
+          "precision": 0.9768595041322314,
+          "recall": 0.20693277310924368,
+          "f1": 0.34151979196763943,
+          "support": 2856
+        },
+        "NSL_U2R": {
+          "precision": 0.8333333333333334,
+          "recall": 0.22388059701492538,
+          "f1": 0.3529411764705882,
+          "support": 67
+        }
+      },
+      "decision_counts": {
+        "Normal": 10965,
+        "Known_attack": 7453,
+        "Unfamiliar": 3462
+      },
+      "thresholds": {
+        "temperature": 0.9438661932945251,
+        "tau_ood": 1.3676080703735352,
+        "tau_conf": 0.4274565279483795
+      },
+      "ood": {
+        "auroc": 0.8799609827515754,
+        "aupr": 0.5778624957725649,
+        "fpr_at_95_tpr": 0.3583815028901734,
+        "positive_rows": 3715,
+        "test_only_attack_rows": 3715
+      },
+      "ood_score_summary": {
+        "mean": 0.2894656042392404,
+        "median": -0.23035802,
+        "p95": 2.7681468799999998,
+        "p99": 6.076049759999997
+      }
+    },
+    {
+      "view": "nsl_kdd_test_full",
+      "accuracy": 0.7937810503903477,
+      "macro_precision": 0.8436180413404767,
+      "macro_recall": 0.5979931897714994,
+      "macro_f1": 0.6305857598804987,
+      "weighted_precision": 0.8296539713463704,
+      "weighted_recall": 0.7937810503903477,
+      "weighted_f1": 0.7696437035927881,
+      "total": 22544,
+      "per_class": {
+        "Normal": {
+          "precision": 0.7235979325773355,
+          "recall": 0.9659149418185563,
+          "f1": 0.8273793772602982,
+          "support": 9711
+        },
+        "DoS": {
+          "precision": 0.937705431209892,
+          "recall": 0.803083109919571,
+          "f1": 0.8651888222976388,
+          "support": 7460
+        },
+        "Probe_Recon": {
+          "precision": 0.7465940054495913,
+          "recall": 0.7922346137959521,
+          "f1": 0.7687374749498999,
+          "support": 2421
+        },
+        "UNSW_Exploits": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Generic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "UNSW_Worms": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "NSL_R2L": {
+          "precision": 0.9768595041322314,
+          "recall": 0.2048526863084922,
+          "f1": 0.3386819484240688,
+          "support": 2885
+        },
+        "NSL_U2R": {
+          "precision": 0.8333333333333334,
+          "recall": 0.22388059701492538,
+          "f1": 0.3529411764705882,
+          "support": 67
+        }
+      },
+      "decision_counts": {
+        "Normal": 11077,
+        "Known_attack": 7971,
+        "Unfamiliar": 3496
+      },
+      "thresholds": {
+        "temperature": 0.9438661932945251,
+        "tau_ood": 1.3676080703735352,
+        "tau_conf": 0.4274565279483795
+      },
+      "ood": {
+        "auroc": 0.8772566209073817,
+        "aupr": 0.5711614079229518,
+        "fpr_at_95_tpr": 0.3676705331488773,
+        "positive_rows": 3750,
+        "test_only_attack_rows": 3750
+      },
+      "ood_score_summary": {
+        "mean": 0.28834680702877397,
+        "median": -0.2174768,
+        "p95": 2.76221402,
+        "p99": 6.072033618
+      }
+    },
+    {
+      "view": "unsw_nb15_test_independent",
+      "accuracy": 0.7616918052337006,
+      "macro_precision": 0.4743861256682627,
+      "macro_recall": 0.5143323370002595,
+      "macro_f1": 0.46081579369237524,
+      "weighted_precision": 0.8336656178936364,
+      "weighted_recall": 0.7616918052337006,
+      "weighted_f1": 0.7866508105830285,
+      "total": 73791,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9436291219634719,
+          "recall": 0.7402049088043233,
+          "f1": 0.8296291622631986,
+          "support": 35528
+        },
+        "DoS": {
+          "precision": 0.2115236875800256,
+          "recall": 0.39616306954436453,
+          "f1": 0.2757929883138564,
+          "support": 2085
+        },
+        "Probe_Recon": {
+          "precision": 0.6310333657272432,
+          "recall": 0.8261238337574215,
+          "f1": 0.7155188246097336,
+          "support": 2358
+        },
+        "UNSW_Exploits": {
+          "precision": 0.7273190621814475,
+          "recall": 0.7647374062165059,
+          "f1": 0.745559038662487,
+          "support": 9330
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.3233455699970235,
+          "recall": 0.5617996897086709,
+          "f1": 0.4104534005037784,
+          "support": 5801
+        },
+        "UNSW_Generic": {
+          "precision": 0.9998784785514643,
+          "recall": 0.9595894804361771,
+          "f1": 0.9793197845686911,
+          "support": 17149
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 552
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.25842696629213485,
+          "recall": 0.039723661485319514,
+          "f1": 0.0688622754491018,
+          "support": 579
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.23694029850746268,
+          "recall": 0.6958904109589041,
+          "f1": 0.3535142658315936,
+          "support": 365
+        },
+        "UNSW_Worms": {
+          "precision": 0.4117647058823529,
+          "recall": 0.1590909090909091,
+          "f1": 0.22950819672131148,
+          "support": 44
+        },
+        "NSL_R2L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "NSL_U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "decision_counts": {
+        "Known_attack": 35776,
+        "Normal": 25971,
+        "Uncertain": 6418,
+        "Unfamiliar": 5626
+      },
+      "thresholds": {
+        "temperature": 0.9438661932945251,
+        "tau_ood": 1.3676080703735352,
+        "tau_conf": 0.4274565279483795
+      },
+      "ood": {
+        "auroc": null,
+        "aupr": null,
+        "fpr_at_95_tpr": null,
+        "positive_rows": 0,
+        "test_only_attack_rows": 0
+      },
+      "ood_score_summary": {
+        "mean": 0.38070895377521224,
+        "median": 0.5311321,
+        "p95": 1.6189325,
+        "p99": 2.6940184
+      }
+    },
+    {
+      "view": "unsw_nb15_test_full",
+      "accuracy": 0.7501700432395666,
+      "macro_precision": 0.48756364842333666,
+      "macro_recall": 0.5180850540816764,
+      "macro_f1": 0.46984592237021666,
+      "weighted_precision": 0.8189663452090279,
+      "weighted_recall": 0.7501700432395666,
+      "weighted_f1": 0.7737655152680732,
+      "total": 82332,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9451698936649233,
+          "recall": 0.7375135135135135,
+          "f1": 0.8285284874982921,
+          "support": 37000
+        },
+        "DoS": {
+          "precision": 0.3180308936047351,
+          "recall": 0.5387625336268036,
+          "f1": 0.3999636891793754,
+          "support": 4089
+        },
+        "Probe_Recon": {
+          "precision": 0.7109100050276521,
+          "recall": 0.8089244851258581,
+          "f1": 0.7567567567567568,
+          "support": 3496
+        },
+        "UNSW_Exploits": {
+          "precision": 0.6878674505611972,
+          "recall": 0.6936758893280632,
+          "f1": 0.6907594597012255,
+          "support": 11132
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.3113243397301919,
+          "recall": 0.5405806664467172,
+          "f1": 0.3951048951048951,
+          "support": 6062
+        },
+        "UNSW_Generic": {
+          "precision": 0.999889819303658,
+          "recall": 0.9617932277038843,
+          "f1": 0.9804715987359209,
+          "support": 18871
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 677
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.25842696629213485,
+          "recall": 0.03945111492281304,
+          "f1": 0.06845238095238095,
+          "support": 583
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.2322524101665206,
+          "recall": 0.701058201058201,
+          "f1": 0.34891375905200794,
+          "support": 378
+        },
+        "UNSW_Worms": {
+          "precision": 0.4117647058823529,
+          "recall": 0.1590909090909091,
+          "f1": 0.22950819672131148,
+          "support": 44
+        },
+        "NSL_R2L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "NSL_U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        }
+      },
+      "decision_counts": {
+        "Known_attack": 38874,
+        "Normal": 26959,
+        "Uncertain": 10743,
+        "Unfamiliar": 5756
+      },
+      "thresholds": {
+        "temperature": 0.9438661932945251,
+        "tau_ood": 1.3676080703735352,
+        "tau_conf": 0.4274565279483795
+      },
+      "ood": {
+        "auroc": null,
+        "aupr": null,
+        "fpr_at_95_tpr": null,
+        "positive_rows": 0,
+        "test_only_attack_rows": 0
+      },
+      "ood_score_summary": {
+        "mean": 0.3837662682547088,
+        "median": 0.5421792,
+        "p95": 1.56574796,
+        "p99": 2.6037521
+      }
+    },
+    {
+      "view": "pooled_test_independent",
+      "accuracy": 0.7680906439777989,
+      "macro_precision": 0.580652478382703,
+      "macro_recall": 0.49212637246089247,
+      "macro_f1": 0.47665821769762345,
+      "weighted_precision": 0.8095087435626956,
+      "weighted_recall": 0.7680906439777989,
+      "weighted_f1": 0.7767917616621394,
+      "total": 95671,
+      "per_class": {
+        "Normal": {
+          "precision": 0.8741281068867276,
+          "recall": 0.7885629458944476,
+          "f1": 0.8291438555620269,
+          "support": 45134
+        },
+        "DoS": {
+          "precision": 0.6497569866342648,
+          "recall": 0.7016949152542373,
+          "f1": 0.6747279322853689,
+          "support": 9145
+        },
+        "Probe_Recon": {
+          "precision": 0.676076728193992,
+          "recall": 0.803613680361368,
+          "f1": 0.7343488943488944,
+          "support": 4649
+        },
+        "UNSW_Exploits": {
+          "precision": 0.7273190621814475,
+          "recall": 0.7647374062165059,
+          "f1": 0.745559038662487,
+          "support": 9330
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.3233455699970235,
+          "recall": 0.5617996897086709,
+          "f1": 0.4104534005037784,
+          "support": 5801
+        },
+        "UNSW_Generic": {
+          "precision": 0.9998784785514643,
+          "recall": 0.9595894804361771,
+          "f1": 0.9793197845686911,
+          "support": 17149
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 552
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.25842696629213485,
+          "recall": 0.039723661485319514,
+          "f1": 0.0688622754491018,
+          "support": 579
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.23694029850746268,
+          "recall": 0.6958904109589041,
+          "f1": 0.3535142658315936,
+          "support": 365
+        },
+        "UNSW_Worms": {
+          "precision": 0.4117647058823529,
+          "recall": 0.1590909090909091,
+          "f1": 0.22950819672131148,
+          "support": 44
+        },
+        "NSL_R2L": {
+          "precision": 0.9768595041322314,
+          "recall": 0.20693277310924368,
+          "f1": 0.34151979196763943,
+          "support": 2856
+        },
+        "NSL_U2R": {
+          "precision": 0.8333333333333334,
+          "recall": 0.22388059701492538,
+          "f1": 0.3529411764705882,
+          "support": 67
+        }
+      }
+    },
+    {
+      "view": "pooled_test_full",
+      "accuracy": 0.7595446050574011,
+      "macro_precision": 0.5773743821628661,
+      "macro_recall": 0.4850812263531379,
+      "macro_f1": 0.4711416622096812,
+      "weighted_precision": 0.7998291792498582,
+      "weighted_recall": 0.7595446050574011,
+      "weighted_f1": 0.7682905838365666,
+      "total": 104876,
+      "per_class": {
+        "Normal": {
+          "precision": 0.8765119280967634,
+          "recall": 0.784997109888463,
+          "f1": 0.8282342311818849,
+          "support": 46711
+        },
+        "DoS": {
+          "precision": 0.6153499549414239,
+          "recall": 0.7094986578924583,
+          "f1": 0.6590790267444199,
+          "support": 11549
+        },
+        "Probe_Recon": {
+          "precision": 0.7249121735145868,
+          "recall": 0.8020956565827277,
+          "f1": 0.761553273427471,
+          "support": 5917
+        },
+        "UNSW_Exploits": {
+          "precision": 0.6878674505611972,
+          "recall": 0.6936758893280632,
+          "f1": 0.6907594597012255,
+          "support": 11132
+        },
+        "UNSW_Fuzzers": {
+          "precision": 0.3113243397301919,
+          "recall": 0.5405806664467172,
+          "f1": 0.3951048951048951,
+          "support": 6062
+        },
+        "UNSW_Generic": {
+          "precision": 0.999889819303658,
+          "recall": 0.9617932277038843,
+          "f1": 0.9804715987359209,
+          "support": 18871
+        },
+        "UNSW_Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 677
+        },
+        "UNSW_Backdoor": {
+          "precision": 0.25842696629213485,
+          "recall": 0.03945111492281304,
+          "f1": 0.06845238095238095,
+          "support": 583
+        },
+        "UNSW_Shellcode": {
+          "precision": 0.2322524101665206,
+          "recall": 0.701058201058201,
+          "f1": 0.34891375905200794,
+          "support": 378
+        },
+        "UNSW_Worms": {
+          "precision": 0.4117647058823529,
+          "recall": 0.1590909090909091,
+          "f1": 0.22950819672131148,
+          "support": 44
+        },
+        "NSL_R2L": {
+          "precision": 0.9768595041322314,
+          "recall": 0.2048526863084922,
+          "f1": 0.3386819484240688,
+          "support": 2885
+        },
+        "NSL_U2R": {
+          "precision": 0.8333333333333334,
+          "recall": 0.22388059701492538,
+          "f1": 0.3529411764705882,
+          "support": 67
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+# Approved Stage 6 screening configuration.
+# The four original Stage 6 losses remain unchanged.
+schema_version: 2
+
+training:
+  source_datasets:
+    - nsl_kdd
+    - unsw_nb15
+  splits:
+    - train
+    - validation
+  variance_floor: 1.0e-4
+  residual_dimensions: [64, 128]
+  lambda_red_candidates: [0.01, 0.1, 1.0]
+  seed_screening: 42
+  finalist_seeds: [42, 43, 44]
+  max_steps: 10000
+  validation_interval: 500
+  sub_batch_size_per_dataset: 256
+  validation_batch_size: 512
+  warmup_fraction: 0.10
+  early_stop_patience: 5
+  min_relative_improvement: 0.005
+  loss_coefficients:
+    lambda_pred: 1.0
+    lambda_info: 1.0
+    lambda_mag: 1.0
+    lambda_proj: 1.0
+
+projection_experiment:
+  enabled: true
+  objective: centered_sample_gram_preservation
+  formula: "||K_proj - stop_gradient(K_R)||_F^2 / B^2"
+  compute_separately_per_dataset: true
+  projection_input_for_objective: "stop_gradient(R)"
+  gradient_targets:
+    - projection_weights
+    - projection_bias
+  gradient_exclusions:
+    - stage5
+    - predictor
+    - residual_encoder
+    - residual_decoder
+  coefficient: 1.0
+  trainable_variant:
+    projection:
+      type: linear
+      input_dim: 64
+      output_dim: 128
+      initialization: "PyTorch nn.Linear default initialization"
+      trainable: true
+  fixed_baseline:
+    projection:
+      type: linear
+      input_dim: 64
+      output_dim: 128
+      initialization: "semi_orthogonal; W^T W = I_64"
+      bias_initialization: zero
+      trainable: false
+  identity_baseline:
+    applies_when_residual_dim: 128
+    projection: identity
+
+screening_matrix:
+  total_runs: 9
+  seed: 42
+  candidates:
+    - residual_dim: 64
+      projection_mode: trainable
+      lambda_red: 0.01
+    - residual_dim: 64
+      projection_mode: trainable
+      lambda_red: 0.1
+    - residual_dim: 64
+      projection_mode: trainable
+      lambda_red: 1.0
+    - residual_dim: 64
+      projection_mode: fixed_semi_orthogonal
+      lambda_red: 0.01
+    - residual_dim: 64
+      projection_mode: fixed_semi_orthogonal
+      lambda_red: 0.1
+    - residual_dim: 64
+      projection_mode: fixed_semi_orthogonal
+      lambda_red: 1.0
+    - residual_dim: 128
+      projection_mode: identity
+      lambda_red: 0.01
+    - residual_dim: 128
+      projection_mode: identity
+      lambda_red: 0.1
+    - residual_dim: 128
+      projection_mode: identity
+      lambda_red: 1.0
+  finalist_selection:
+    count: 2
+    ranking_metric: mean_validation_objective
+    lower_is_better: true
+    seeds: [42, 43, 44]
+    probe_input_baseline: Z_s
+    probe_input_augmented: "[Z_s, R]"
+    probe_metric: validation_macro_f1_gain
+
+constraints:
+  no_labels_used_for_stage6_training: true
+  labels_used_only_for_train_fit_and_validation_scoring_probes: true
+  no_test_or_unseen_data: true
+  no_stage7_or_later_training: true
+  no_stage5_changes: true
+  no_package_installs: true

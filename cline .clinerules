@@ -1,0 +1,35 @@
+# NOVEL-IDS project rules (save this file as `.clinerules` in the project root; Cline reads it automatically)
+
+Project root: C:\Users\VaishnaviP\OneDrive\Desktop\Documents\NOVEL_IDS_Project
+Large outputs and run folders: C:\NOVEL_IDS_runs\ (never write big files into the OneDrive project folder).
+
+## What this project is
+NOVEL-IDS is a 12-stage intrusion-detection model (trained on NSL-KDD and UNSW-NB15). The architecture and the trained model are FINAL. Your job is only the small task the user gives you. Do not redesign, retrain or "improve" anything that is not in the task.
+
+## Never touch (read-only, never edit, move or delete)
+- Stage 5 files: stage5_training.py, stage5_training_candidate.py, dual_encoder.py, classification_head.py, reconstruction_decoder.py, feature_identity.py, config/datasets.yaml, config/preprocessing_policy.yaml.
+- The Stage 5 snapshot: C:\NOVEL_IDS_runs\stage6\stage5_input_snapshot\best.pt
+- The primary model checkpoint folder: C:\NOVEL_IDS_runs\stage7_11\coral_screen_lambda0p05_seed43\
+- Raw datasets, split artifacts, preprocessing artifacts.
+- Official test partitions. Test data is CLOSED: no new model inference on test features. You MAY read the already saved test predictions and metrics in C:\NOVEL_IDS_runs\phaseC_recovery_20261126\ (read-only).
+- Do not run git commands. Do not install packages (if something is missing, tell the user the exact pip command and stop that step). Do not delete files.
+
+## Hardware limits
+16 GB RAM, RTX 3050 with 6 GB VRAM, about 21 GB free disk. Run ONE heavy process at a time. Stop and tell the user if free RAM is below 2 GB or free disk below 10 GB.
+
+## How to work (you are a small model: be careful and literal)
+1. Do ONLY the current task. Read only the files the task names. Do not scan the whole repository.
+2. Use Plan mode first: say in 5 lines what you will do, then switch to Act mode.
+3. Write code as files (scripts/...), then run them. Send long terminal output to a log file and read only its last 40 lines.
+4. If a command fails, read the error, fix, retry. Maximum 3 tries per problem. Then stop and report the exact error to the user.
+5. Never claim a result unless the command output showed it. Never invent, estimate or round up a number. If a number is missing, write "not available".
+6. Use real values from files. Never use fake or synthetic data except in unit tests, and say so.
+7. Labels of an unseen dataset are used ONLY for evaluation, never for any decision.
+8. When the task is finished: append 5 lines to PROGRESS.md (task name, files created or changed, the command you ran, its result, problems), then STOP. Do not start the next task.
+
+## Ask the user only if
+- A command would touch a protected item, test data, or a model checkpoint.
+- A hash of a protected file differs from the recorded one.
+- You cannot finish after 3 tries.
+- The task text is unclear in a way that changes results.
+Otherwise decide yourself, write the decision in docs/DECISION_RECORD.md, and continue.
